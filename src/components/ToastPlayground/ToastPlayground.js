@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Button from '../Button';
-import Toast from '../Toast'
 import ToastShelf from '../ToastShelf'
 import { ToastContext } from '../ToastProvider'
 
@@ -12,9 +11,7 @@ const VARIANT_OPTIONS = ['notice', 'warning', 'success', 'error'];
 function ToastPlayground() {
   const [variant, setVariant] = React.useState(VARIANT_OPTIONS[0])
   const [message, setMessage] = React.useState('')
-
   const { createToast } = React.useContext(ToastContext)
-  const [toasts, setToasts] = React.useState([])
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -36,11 +33,7 @@ function ToastPlayground() {
 
       <form className={styles.controlsWrapper} onSubmit={handleSubmit}>
         <div className={styles.row}>
-          <label
-            htmlFor="message"
-            className={styles.label}
-            style={{ alignSelf: 'baseline' }}
-          >
+          <label htmlFor="message" className={styles.label} style={{ alignSelf: 'baseline' }}>
             Message
           </label>
           <div className={styles.inputWrapper}>
@@ -54,9 +47,7 @@ function ToastPlayground() {
 
         <div className={styles.row}>
           <div className={styles.label}>Variant</div>
-          <div
-            className={`${styles.inputWrapper} ${styles.radioWrapper}`}
-          >
+          <div className={`${styles.inputWrapper} ${styles.radioWrapper}`}>
             {VARIANT_OPTIONS.map(option => (
               <label key={option} htmlFor={`variant-${option}`}>
                 <input
@@ -75,15 +66,13 @@ function ToastPlayground() {
 
         <div className={styles.row}>
           <div className={styles.label} />
-          <div
-            className={`${styles.inputWrapper} ${styles.radioWrapper}`}
-          >
+          <div className={`${styles.inputWrapper} ${styles.radioWrapper}`}>
             <Button>Pop Toast!</Button>
           </div>
         </div>
       </form>
     </div>
-  );
+  )
 }
 
-export default ToastPlayground;
+export default ToastPlayground
